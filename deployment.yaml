@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cpp-hello
+  template:
+    metadata:
+      labels:
+        app: cpp-hello
+    spec:
+      containers:
+      - name: cpp-hello
+        image: your-dockerhub-username/cpp-hello:latest
+        imagePullPolicy: Always
